@@ -52,16 +52,23 @@
         <version>1.4.11</version>
     </dependency>
     
+    <!--Apache POI-->
+    <dependency>
+        <groupId>org.apache.poi</groupId>
+        <artifactId>poi-ooxml</artifactId>
+        <version>5.2.3</version>
+    </dependency>
+    
     <!-- FlatLaf -->
     <dependency>
         <groupId>com.formdev</groupId>
         <artifactId>flatlaf</artifactId>
-        <version>3.2.1</version>
+        <version>3.5.2</version>
     </dependency>
     <dependency>
         <groupId>com.formdev</groupId>
         <artifactId>flatlaf-intellij-themes</artifactId>
-        <version>3.2.1</version>
+        <version>3.5.2</version>
     </dependency>
     </dependencies>
 </project>

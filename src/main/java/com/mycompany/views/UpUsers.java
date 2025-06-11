@@ -78,10 +78,10 @@ public class UpUsers extends javax.swing.JPanel {
         setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(750, 430));
 
-        background.setBackground(new java.awt.Color(255, 255, 255));
+        background.setBackground(new java.awt.Color(247, 248, 249));
         background.setPreferredSize(new java.awt.Dimension(750, 430));
 
-        button.setBackground(new java.awt.Color(188, 64, 64));
+        button.setBackground(new java.awt.Color(223, 38, 114));
         button.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         button.setForeground(new java.awt.Color(255, 255, 255));
         button.setText("Registrar");
@@ -95,19 +95,34 @@ public class UpUsers extends javax.swing.JPanel {
 
         apMLbl.setText("Apellido Marterno");
 
+        title.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         title.setText("Registar nuevo Usuario");
+
+        apMTxt.setBackground(new java.awt.Color(241, 243, 244));
+        apMTxt.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(241, 243, 244), 1, true));
 
         phoneLbl.setText("Telefono");
 
+        phoneTxt.setBackground(new java.awt.Color(241, 243, 244));
+        phoneTxt.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(241, 243, 244), 1, true));
+
         apPLbl.setText("Apellido Paterno");
+
+        apPTxt.setBackground(new java.awt.Color(241, 243, 244));
+        apPTxt.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(241, 243, 244), 1, true));
 
         nameLbl.setText("Nombre");
 
+        nameTxt.setBackground(new java.awt.Color(241, 243, 244));
+        nameTxt.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(241, 243, 244), 1, true));
         nameTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nameTxtActionPerformed(evt);
             }
         });
+
+        domTxt.setBackground(new java.awt.Color(241, 243, 244));
+        domTxt.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(241, 243, 244), 1, true));
 
         domLbl.setText("Domicilio");
 
@@ -164,10 +179,10 @@ public class UpUsers extends javax.swing.JPanel {
                     .addComponent(phoneTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(20, 20, 20)
                 .addComponent(apMLbl)
-                .addGap(14, 14, 14)
-                .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(9, 9, 9)
+                .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(apMTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(button, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(button, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

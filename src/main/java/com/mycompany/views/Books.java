@@ -23,8 +23,6 @@ public class Books extends javax.swing.JPanel {
     }
     
     private void InitStyles(){
-        tittle.putClientProperty( "FlatLaf.style", "font: bold $h3.regular.font" );
-        tittle.setForeground(Color.black);
         bookSearch.putClientProperty("JTextField.placeholderText", "Ingrese el título del libro a buscar.");
         
     }
@@ -51,54 +49,44 @@ public class Books extends javax.swing.JPanel {
     private void initComponents() {
 
         background = new javax.swing.JPanel();
-        deleteButton = new javax.swing.JButton();
-        tittle = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
         bookSearch = new javax.swing.JTextField();
+        searchButton = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        searchButton = new javax.swing.JButton();
         addButton = new javax.swing.JButton();
         editButton = new javax.swing.JButton();
+        deleteButton = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(750, 430));
 
-        background.setBackground(new java.awt.Color(255, 255, 255));
+        background.setBackground(new java.awt.Color(247, 248, 249));
         background.setPreferredSize(new java.awt.Dimension(750, 430));
         background.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        deleteButton.setBackground(new java.awt.Color(188, 64, 64));
-        deleteButton.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        deleteButton.setForeground(new java.awt.Color(255, 255, 255));
-        deleteButton.setText("Borrar");
-        deleteButton.setBorderPainted(false);
-        deleteButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        deleteButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deleteButtonActionPerformed(evt);
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        bookSearch.setBackground(new java.awt.Color(241, 243, 244));
+        bookSearch.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        bookSearch.setForeground(new java.awt.Color(102, 102, 102));
+        bookSearch.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        bookSearch.setText("Buscar libro...");
+        bookSearch.setToolTipText("");
+        bookSearch.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(241, 243, 244), 2, true));
+        bookSearch.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                bookSearchFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                bookSearchFocusLost(evt);
             }
         });
-        background.add(deleteButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 370, 90, 50));
 
-        tittle.setText("Libros");
-        background.add(tittle, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, -1, -1));
-        background.add(bookSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 540, 50));
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "ID", "Titulo", "Fecha de publicacion", "Autor", "Categoria", "Edicion", "Idiomas", "Paginas", "Descripcion", "Stock", "Disponibles", "Ejemplares"
-            }
-        ));
-        jTable1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jScrollPane1.setViewportView(jTable1);
-
-        background.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 690, 240));
-
-        searchButton.setBackground(new java.awt.Color(188, 64, 64));
-        searchButton.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        searchButton.setBackground(new java.awt.Color(223, 38, 114));
+        searchButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         searchButton.setForeground(new java.awt.Color(255, 255, 255));
         searchButton.setText("Buscar");
         searchButton.setBorderPainted(false);
@@ -108,9 +96,71 @@ public class Books extends javax.swing.JPanel {
                 searchButtonActionPerformed(evt);
             }
         });
-        background.add(searchButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 40, 130, 50));
 
-        addButton.setBackground(new java.awt.Color(188, 64, 64));
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel1.setText("Gestión de Libros");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 152, Short.MAX_VALUE)
+                .addComponent(searchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(bookSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(14, 14, 14))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap(25, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(searchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(bookSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(23, 23, 23))))
+        );
+
+        background.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 12, 750, 80));
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ID", "Titulo", "Fecha de publicacion", "Autor", "Categoria", "Edicion", "Idiomas", "Paginas", "Descripcion", "Stock", "Disponibles", "Ejemplares"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jTable1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jTable1.setGridColor(new java.awt.Color(255, 255, 255));
+        jTable1.getTableHeader().setReorderingAllowed(false);
+        jScrollPane1.setViewportView(jTable1);
+
+        addButton.setBackground(new java.awt.Color(223, 38, 114));
         addButton.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         addButton.setForeground(new java.awt.Color(255, 255, 255));
         addButton.setText("Nuevo");
@@ -121,9 +171,8 @@ public class Books extends javax.swing.JPanel {
                 addButtonActionPerformed(evt);
             }
         });
-        background.add(addButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 370, 90, 50));
 
-        editButton.setBackground(new java.awt.Color(188, 64, 64));
+        editButton.setBackground(new java.awt.Color(223, 38, 114));
         editButton.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         editButton.setForeground(new java.awt.Color(255, 255, 255));
         editButton.setText("Editar");
@@ -134,13 +183,57 @@ public class Books extends javax.swing.JPanel {
                 editButtonActionPerformed(evt);
             }
         });
-        background.add(editButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 370, 90, 50));
+
+        deleteButton.setBackground(new java.awt.Color(223, 38, 114));
+        deleteButton.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        deleteButton.setForeground(new java.awt.Color(255, 255, 255));
+        deleteButton.setText("Borrar");
+        deleteButton.setBorderPainted(false);
+        deleteButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        deleteButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(addButton, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(editButton, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(deleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 740, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 10, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(addButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(editButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(deleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        background.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 106, 750, 320));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(background, javax.swing.GroupLayout.PREFERRED_SIZE, 768, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -198,6 +291,22 @@ public class Books extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_editButtonActionPerformed
 
+    private void bookSearchFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_bookSearchFocusGained
+        // TODO add your handling code here:
+        if(bookSearch.getText().equals("Buscar libro...")){
+            bookSearch.setText("");
+            bookSearch.setForeground(new Color(0,0,0));
+        }
+    }//GEN-LAST:event_bookSearchFocusGained
+
+    private void bookSearchFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_bookSearchFocusLost
+        // TODO add your handling code here:
+        if(bookSearch.getText().equals("")){
+            bookSearch.setText("Buscar libro...");
+            bookSearch.setForeground(new Color(102,102,102));
+        }
+    }//GEN-LAST:event_bookSearchFocusLost
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addButton;
@@ -205,9 +314,11 @@ public class Books extends javax.swing.JPanel {
     private javax.swing.JTextField bookSearch;
     private javax.swing.JButton deleteButton;
     private javax.swing.JButton editButton;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JButton searchButton;
-    private javax.swing.JLabel tittle;
     // End of variables declaration//GEN-END:variables
 }

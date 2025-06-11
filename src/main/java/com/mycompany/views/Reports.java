@@ -53,11 +53,11 @@ public class Reports extends javax.swing.JPanel {
         setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(750, 430));
 
-        background.setBackground(new java.awt.Color(255, 255, 255));
+        background.setBackground(new java.awt.Color(247, 248, 249));
         background.setPreferredSize(new java.awt.Dimension(750, 430));
         background.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        updateButton.setBackground(new java.awt.Color(188, 64, 64));
+        updateButton.setBackground(new java.awt.Color(223, 38, 114));
         updateButton.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         updateButton.setForeground(new java.awt.Color(255, 255, 255));
         updateButton.setText("Actualizar");
@@ -68,33 +68,51 @@ public class Reports extends javax.swing.JPanel {
                 updateButtonActionPerformed(evt);
             }
         });
-        background.add(updateButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 340, 140, 50));
+        background.add(updateButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 340, 140, 40));
 
-        tittle.setText("Reportes");
+        tittle.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        tittle.setText("Gestión de Reportes");
         background.add(tittle, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, -1, -1));
 
+        jTable1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null},
-                {null, "", null, null},
+                {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null}
             },
             new String [] {
-                "User ID", "Books ID", "Fecha de salida", "Fecha de entrega"
+                "ID Usuario", "ID Libro", "Fecha de salida", "Fecha de entrega"
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jTable1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jTable1.setGridColor(new java.awt.Color(153, 153, 153));
+        jTable1.setGridColor(new java.awt.Color(218, 229, 255));
         jTable1.setShowGrid(true);
+        jTable1.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(jTable1);
 
-        background.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 690, 270));
+        background.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 690, 260));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
