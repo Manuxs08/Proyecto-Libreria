@@ -148,13 +148,15 @@ private void testLogging() {
         background.setForeground(new java.awt.Color(129, 40, 40));
         background.setPreferredSize(new java.awt.Dimension(1030, 640));
 
-        menu.setBackground(new java.awt.Color(54, 33, 89));
+        menu.setBackground(new java.awt.Color(44, 62, 80));
         menu.setPreferredSize(new java.awt.Dimension(270, 640));
 
+        appName.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        appName.setForeground(new java.awt.Color(255, 255, 255));
         appName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        appName.setText("Bibliotech");
+        appName.setText("Luz del Saber");
 
-        btn_prin.setBackground(new java.awt.Color(122, 72, 221));
+        btn_prin.setBackground(new java.awt.Color(44, 62, 80));
         btn_prin.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btn_prin.setForeground(new java.awt.Color(255, 255, 255));
         btn_prin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/home-outline.png"))); // NOI18N
@@ -164,13 +166,21 @@ private void testLogging() {
         btn_prin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_prin.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btn_prin.setIconTextGap(10);
+        btn_prin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btn_prinMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btn_prinMouseExited(evt);
+            }
+        });
         btn_prin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_prinActionPerformed(evt);
             }
         });
 
-        btn_lends.setBackground(new java.awt.Color(122, 72, 221));
+        btn_lends.setBackground(new java.awt.Color(44, 62, 80));
         btn_lends.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btn_lends.setForeground(new java.awt.Color(255, 255, 255));
         btn_lends.setIcon(new javax.swing.ImageIcon(getClass().getResource("/calendar-plus.png"))); // NOI18N
@@ -180,13 +190,21 @@ private void testLogging() {
         btn_lends.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_lends.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btn_lends.setIconTextGap(10);
+        btn_lends.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btn_lendsMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btn_lendsMouseExited(evt);
+            }
+        });
         btn_lends.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_lendsActionPerformed(evt);
             }
         });
 
-        btn_returns.setBackground(new java.awt.Color(122, 72, 221));
+        btn_returns.setBackground(new java.awt.Color(44, 62, 80));
         btn_returns.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btn_returns.setForeground(new java.awt.Color(255, 255, 255));
         btn_returns.setIcon(new javax.swing.ImageIcon(getClass().getResource("/calendar-multiple-check.png"))); // NOI18N
@@ -196,13 +214,21 @@ private void testLogging() {
         btn_returns.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_returns.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btn_returns.setIconTextGap(10);
+        btn_returns.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btn_returnsMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btn_returnsMouseExited(evt);
+            }
+        });
         btn_returns.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_returnsActionPerformed(evt);
             }
         });
 
-        btn_users.setBackground(new java.awt.Color(122, 72, 221));
+        btn_users.setBackground(new java.awt.Color(44, 62, 80));
         btn_users.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btn_users.setForeground(new java.awt.Color(255, 255, 255));
         btn_users.setIcon(new javax.swing.ImageIcon(getClass().getResource("/account-multiple.png"))); // NOI18N
@@ -212,13 +238,21 @@ private void testLogging() {
         btn_users.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_users.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btn_users.setIconTextGap(10);
+        btn_users.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btn_usersMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btn_usersMouseExited(evt);
+            }
+        });
         btn_users.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_usersActionPerformed(evt);
             }
         });
 
-        btn_books.setBackground(new java.awt.Color(122, 72, 221));
+        btn_books.setBackground(new java.awt.Color(44, 62, 80));
         btn_books.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btn_books.setForeground(new java.awt.Color(255, 255, 255));
         btn_books.setIcon(new javax.swing.ImageIcon(getClass().getResource("/book-open-page-variant.png"))); // NOI18N
@@ -228,13 +262,21 @@ private void testLogging() {
         btn_books.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_books.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btn_books.setIconTextGap(10);
+        btn_books.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btn_booksMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btn_booksMouseExited(evt);
+            }
+        });
         btn_books.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_booksActionPerformed(evt);
             }
         });
 
-        btn_reports.setBackground(new java.awt.Color(122, 72, 221));
+        btn_reports.setBackground(new java.awt.Color(44, 62, 80));
         btn_reports.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btn_reports.setForeground(new java.awt.Color(255, 255, 255));
         btn_reports.setIcon(new javax.swing.ImageIcon(getClass().getResource("/file-chart.png"))); // NOI18N
@@ -244,6 +286,14 @@ private void testLogging() {
         btn_reports.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_reports.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btn_reports.setIconTextGap(10);
+        btn_reports.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btn_reportsMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btn_reportsMouseExited(evt);
+            }
+        });
         btn_reports.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_reportsActionPerformed(evt);
@@ -268,9 +318,9 @@ private void testLogging() {
         menuLayout.setVerticalGroup(
             menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(menuLayout.createSequentialGroup()
-                .addGap(65, 65, 65)
+                .addGap(29, 29, 29)
                 .addComponent(appName)
-                .addGap(54, 54, 54)
+                .addGap(34, 34, 34)
                 .addGroup(menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(menuLayout.createSequentialGroup()
                         .addGap(100, 100, 100)
@@ -290,7 +340,7 @@ private void testLogging() {
                         .addComponent(btn_books, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
 
-        header.setBackground(new java.awt.Color(122, 72, 221));
+        header.setBackground(new java.awt.Color(44, 62, 80));
         header.setPreferredSize(new java.awt.Dimension(750, 150));
 
         navText.setText("Administracion/Control/Biblioteca");
@@ -412,6 +462,66 @@ private void testLogging() {
         logger.info("Usuario hizo clic en Libros");
         ShowJPanel(new Books());
     }//GEN-LAST:event_btn_booksActionPerformed
+
+    private void btn_prinMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_prinMouseEntered
+        // TODO add your handling code here:
+        btn_prin.setBackground(Color.decode("#4F3958"));
+    }//GEN-LAST:event_btn_prinMouseEntered
+
+    private void btn_prinMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_prinMouseExited
+        // TODO add your handling code here:
+        btn_prin.setBackground(Color.decode("#2C3E50"));
+    }//GEN-LAST:event_btn_prinMouseExited
+
+    private void btn_lendsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_lendsMouseEntered
+        // TODO add your handling code here:
+        btn_lends.setBackground(Color.decode("#4F3958"));
+    }//GEN-LAST:event_btn_lendsMouseEntered
+
+    private void btn_lendsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_lendsMouseExited
+        // TODO add your handling code here:
+        btn_lends.setBackground(Color.decode("#2C3E50"));
+    }//GEN-LAST:event_btn_lendsMouseExited
+
+    private void btn_returnsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_returnsMouseEntered
+        // TODO add your handling code here:
+        btn_returns.setBackground(Color.decode("#4F3958"));
+    }//GEN-LAST:event_btn_returnsMouseEntered
+
+    private void btn_returnsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_returnsMouseExited
+        // TODO add your handling code here:
+        btn_returns.setBackground(Color.decode("#2C3E50"));
+    }//GEN-LAST:event_btn_returnsMouseExited
+
+    private void btn_usersMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_usersMouseEntered
+        // TODO add your handling code here:
+        btn_users.setBackground(Color.decode("#4F3958"));
+    }//GEN-LAST:event_btn_usersMouseEntered
+
+    private void btn_usersMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_usersMouseExited
+        // TODO add your handling code here:
+        btn_users.setBackground(Color.decode("#2C3E50"));
+    }//GEN-LAST:event_btn_usersMouseExited
+
+    private void btn_booksMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_booksMouseEntered
+        // TODO add your handling code here:
+        btn_books.setBackground(Color.decode("#4F3958"));
+    }//GEN-LAST:event_btn_booksMouseEntered
+
+    private void btn_booksMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_booksMouseExited
+        // TODO add your handling code here:
+        btn_books.setBackground(Color.decode("#2C3E50"));
+    }//GEN-LAST:event_btn_booksMouseExited
+
+    private void btn_reportsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_reportsMouseEntered
+        // TODO add your handling code here:
+        btn_reports.setBackground(Color.decode("#4F3958"));
+    }//GEN-LAST:event_btn_reportsMouseEntered
+
+    private void btn_reportsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_reportsMouseExited
+        // TODO add your handling code here:
+        btn_reports.setBackground(Color.decode("#2C3E50"));
+    }//GEN-LAST:event_btn_reportsMouseExited
 
     /**
      * @param args the command line arguments

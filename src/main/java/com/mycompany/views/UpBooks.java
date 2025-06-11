@@ -114,14 +114,14 @@ public class UpBooks extends javax.swing.JPanel {
         setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(750, 430));
 
-        background.setBackground(new java.awt.Color(255, 255, 255));
+        background.setBackground(new java.awt.Color(247, 248, 249));
         background.setPreferredSize(new java.awt.Dimension(750, 430));
 
         jSeparator1.setBackground(new java.awt.Color(153, 0, 0));
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
         jSeparator1.setPreferredSize(new java.awt.Dimension(200, 107));
 
-        button.setBackground(new java.awt.Color(188, 64, 64));
+        button.setBackground(new java.awt.Color(223, 38, 114));
         button.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         button.setForeground(new java.awt.Color(255, 255, 255));
         button.setText("Subir");
@@ -133,10 +133,13 @@ public class UpBooks extends javax.swing.JPanel {
             }
         });
 
+        title.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         title.setText("Subir nuevo Libro");
 
         edLbl.setText("Edicion");
 
+        edTxt.setBackground(new java.awt.Color(241, 243, 244));
+        edTxt.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(241, 243, 244), 1, true));
         edTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 edTxtActionPerformed(evt);
@@ -145,6 +148,8 @@ public class UpBooks extends javax.swing.JPanel {
 
         dateLbl.setText("Fecha de Publicacion");
 
+        dispTxt.setBackground(new java.awt.Color(241, 243, 244));
+        dispTxt.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(241, 243, 244), 1, true));
         dispTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 dispTxtActionPerformed(evt);
@@ -153,12 +158,16 @@ public class UpBooks extends javax.swing.JPanel {
 
         dispLbl.setText("Disponibles");
 
+        titleTxt.setBackground(new java.awt.Color(241, 243, 244));
+        titleTxt.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(241, 243, 244), 1, true));
         titleTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 titleTxtActionPerformed(evt);
             }
         });
 
+        dateTxt.setBackground(new java.awt.Color(241, 243, 244));
+        dateTxt.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(241, 243, 244), 1, true));
         dateTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 dateTxtActionPerformed(evt);
@@ -169,6 +178,8 @@ public class UpBooks extends javax.swing.JPanel {
 
         authorLbl.setText("Autor");
 
+        authorTxt.setBackground(new java.awt.Color(241, 243, 244));
+        authorTxt.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(241, 243, 244), 1, true));
         authorTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 authorTxtActionPerformed(evt);
@@ -177,6 +188,8 @@ public class UpBooks extends javax.swing.JPanel {
 
         catLbl.setText("Categoria");
 
+        catTxt.setBackground(new java.awt.Color(241, 243, 244));
+        catTxt.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(241, 243, 244), 1, true));
         catTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 catTxtActionPerformed(evt);
@@ -191,24 +204,32 @@ public class UpBooks extends javax.swing.JPanel {
 
         ejemLbl.setText("Ejemplares");
 
+        LibroIdTxt.setBackground(new java.awt.Color(241, 243, 244));
+        LibroIdTxt.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(241, 243, 244), 1, true));
         LibroIdTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 LibroIdTxtActionPerformed(evt);
             }
         });
 
+        langTxt.setBackground(new java.awt.Color(241, 243, 244));
+        langTxt.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(241, 243, 244), 1, true));
         langTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 langTxtActionPerformed(evt);
             }
         });
 
+        pagsTxt.setBackground(new java.awt.Color(241, 243, 244));
+        pagsTxt.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(241, 243, 244), 1, true));
         pagsTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 pagsTxtActionPerformed(evt);
             }
         });
 
+        ejemTxt.setBackground(new java.awt.Color(241, 243, 244));
+        ejemTxt.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(241, 243, 244), 1, true));
         ejemTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ejemTxtActionPerformed(evt);
@@ -217,6 +238,8 @@ public class UpBooks extends javax.swing.JPanel {
 
         stockLbl.setText("Stock");
 
+        stockTxt.setBackground(new java.awt.Color(241, 243, 244));
+        stockTxt.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(241, 243, 244), 1, true));
         stockTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 stockTxtActionPerformed(evt);
@@ -225,6 +248,8 @@ public class UpBooks extends javax.swing.JPanel {
 
         descLbl.setText("Descripcion");
 
+        descTxt.setBackground(new java.awt.Color(241, 243, 244));
+        descTxt.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(241, 243, 244), 1, true));
         descTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 descTxtActionPerformed(evt);
@@ -255,27 +280,33 @@ public class UpBooks extends javax.swing.JPanel {
                             .addComponent(edTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(40, 40, 40)
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30)
                         .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(langLbl)
-                            .addComponent(langTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(pagsLbl)
-                            .addComponent(pagsTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(descLbl)
-                            .addComponent(descTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(backgroundLayout.createSequentialGroup()
-                                .addComponent(stockLbl)
-                                .addGap(121, 121, 121)
-                                .addComponent(dispLbl))
+                                .addGap(30, 30, 30)
+                                .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(backgroundLayout.createSequentialGroup()
+                                        .addComponent(stockTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(dispTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(backgroundLayout.createSequentialGroup()
+                                        .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(langLbl)
+                                            .addComponent(langTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(pagsLbl)
+                                            .addComponent(pagsTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(descLbl)
+                                            .addComponent(descTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(backgroundLayout.createSequentialGroup()
+                                                .addComponent(stockLbl)
+                                                .addGap(121, 121, 121)
+                                                .addComponent(dispLbl))
+                                            .addComponent(ejemLbl)
+                                            .addComponent(ejemTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(0, 0, Short.MAX_VALUE))))
                             .addGroup(backgroundLayout.createSequentialGroup()
-                                .addComponent(stockTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(dispTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(ejemLbl)
-                            .addComponent(ejemTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(backgroundLayout.createSequentialGroup()
-                                .addGap(60, 60, 60)
-                                .addComponent(button, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addGap(109, 109, 109)
+                                .addComponent(button, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE)))))
                 .addGap(60, 60, 60))
         );
         backgroundLayout.setVerticalGroup(
@@ -334,8 +365,9 @@ public class UpBooks extends javax.swing.JPanel {
                         .addComponent(ejemLbl)
                         .addGap(4, 4, 4)
                         .addComponent(ejemTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20)
-                        .addComponent(button, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(29, 29, 29)
+                        .addComponent(button, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -346,7 +378,9 @@ public class UpBooks extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, 446, Short.MAX_VALUE)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 

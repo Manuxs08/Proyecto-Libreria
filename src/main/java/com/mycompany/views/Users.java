@@ -30,8 +30,6 @@ public class Users extends javax.swing.JPanel {
     }
     
     private void InitStyles(){
-        tittle.putClientProperty( "FlatLaf.style", "font: bold $h3.regular.font" );
-        tittle.setForeground(Color.black);
         userSearch.putClientProperty("JTextField.placeholderText", "Ingrese nombre de usuario a buscar");
     }
     
@@ -60,62 +58,47 @@ public class Users extends javax.swing.JPanel {
 
         jLabel6 = new javax.swing.JLabel();
         background = new javax.swing.JPanel();
-        borrarBtn = new javax.swing.JButton();
-        tittle = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
         userSearch = new javax.swing.JTextField();
+        buscarBtn = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        buscarBtn = new javax.swing.JButton();
         nuevoBtn = new javax.swing.JButton();
         editarBtn = new javax.swing.JButton();
+        borrarBtn = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(750, 430));
 
-        background.setBackground(new java.awt.Color(255, 255, 255));
+        background.setBackground(new java.awt.Color(247, 248, 249));
         background.setPreferredSize(new java.awt.Dimension(750, 430));
-        background.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        borrarBtn.setBackground(new java.awt.Color(188, 64, 64));
-        borrarBtn.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        borrarBtn.setForeground(new java.awt.Color(255, 255, 255));
-        borrarBtn.setText("Borrar");
-        borrarBtn.setBorderPainted(false);
-        borrarBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        borrarBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                borrarBtnActionPerformed(evt);
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        userSearch.setBackground(new java.awt.Color(241, 243, 244));
+        userSearch.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        userSearch.setForeground(new java.awt.Color(102, 102, 102));
+        userSearch.setText("Buscar usuario...");
+        userSearch.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
+        userSearch.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                userSearchFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                userSearchFocusLost(evt);
             }
         });
-        background.add(borrarBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 340, 90, 50));
-
-        tittle.setText("Usuarios");
-        background.add(tittle, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, -1, -1));
-
         userSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 userSearchActionPerformed(evt);
             }
         });
-        background.add(userSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 540, 50));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "ID", "Nombre", "Apellido P.", "Apellido M.", "Domicilio", "Telefono"
-            }
-        ));
-        jTable1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jTable1.setGridColor(new java.awt.Color(153, 153, 153));
-        jTable1.setShowGrid(true);
-        jScrollPane1.setViewportView(jTable1);
-
-        background.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 690, 220));
-
-        buscarBtn.setBackground(new java.awt.Color(188, 64, 64));
-        buscarBtn.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        buscarBtn.setBackground(new java.awt.Color(223, 38, 114));
+        buscarBtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         buscarBtn.setForeground(new java.awt.Color(255, 255, 255));
         buscarBtn.setText("Buscar");
         buscarBtn.setBorderPainted(false);
@@ -125,9 +108,69 @@ public class Users extends javax.swing.JPanel {
                 buscarBtnActionPerformed(evt);
             }
         });
-        background.add(buscarBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 40, 130, 50));
 
-        nuevoBtn.setBackground(new java.awt.Color(188, 64, 64));
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel1.setText("Gestión de Usuarios");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 120, Short.MAX_VALUE)
+                .addComponent(buscarBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(userSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(buscarBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(userSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addComponent(jLabel1)
+                .addContainerGap(28, Short.MAX_VALUE))
+        );
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ID", "Nombre", "Apellido P.", "Apellido M.", "Domicilio", "Telefono"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jTable1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jTable1.setGridColor(new java.awt.Color(153, 153, 153));
+        jTable1.setShowGrid(true);
+        jTable1.getTableHeader().setReorderingAllowed(false);
+        jScrollPane1.setViewportView(jTable1);
+
+        nuevoBtn.setBackground(new java.awt.Color(223, 38, 114));
         nuevoBtn.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         nuevoBtn.setForeground(new java.awt.Color(255, 255, 255));
         nuevoBtn.setText("Nuevo");
@@ -138,9 +181,8 @@ public class Users extends javax.swing.JPanel {
                 nuevoBtnActionPerformed(evt);
             }
         });
-        background.add(nuevoBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 340, 90, 50));
 
-        editarBtn.setBackground(new java.awt.Color(188, 64, 64));
+        editarBtn.setBackground(new java.awt.Color(223, 38, 114));
         editarBtn.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         editarBtn.setForeground(new java.awt.Color(255, 255, 255));
         editarBtn.setText("Editar");
@@ -151,7 +193,84 @@ public class Users extends javax.swing.JPanel {
                 editarBtnActionPerformed(evt);
             }
         });
-        background.add(editarBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 340, 90, 50));
+
+        borrarBtn.setBackground(new java.awt.Color(223, 38, 114));
+        borrarBtn.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        borrarBtn.setForeground(new java.awt.Color(255, 255, 255));
+        borrarBtn.setText("Borrar");
+        borrarBtn.setBorderPainted(false);
+        borrarBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        borrarBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                borrarBtnActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(nuevoBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(editarBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(borrarBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 718, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(nuevoBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(editarBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(borrarBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(24, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout backgroundLayout = new javax.swing.GroupLayout(background);
+        background.setLayout(backgroundLayout);
+        backgroundLayout.setHorizontalGroup(
+            backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(backgroundLayout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(backgroundLayout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
+        backgroundLayout.setVerticalGroup(
+            backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(backgroundLayout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(6, 6, 6)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -161,13 +280,13 @@ public class Users extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(background, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void borrarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_borrarBtnActionPerformed
         // TODO add your handling code here:
-       
+
         DAOUsers dao = new DAOUserImpl(); //Instancia de interface DAOUsers
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel(); //Objeto para manipular tabla
         if(jTable1.getSelectedRows().length<1){//Si no esta seleccionado ninguna fila
@@ -181,38 +300,13 @@ public class Users extends javax.swing.JPanel {
                 } catch (Exception e) {
                     System.out.println(e.getMessage());
                 }
-            } 
+            }
         }
-
     }//GEN-LAST:event_borrarBtnActionPerformed
-
-    private void buscarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarBtnActionPerformed
-        // TODO add your handling code here:
-        try {
-            String usuarioAbuscar = userSearch.getText();
-//            //Validaciones para datos ingresados
-//            if (usuarioAbuscar.isEmpty()) { //No es vacío
-//                javax.swing.JOptionPane.showMessageDialog(this, "Debes ingresar el nombre de usuario a buscar \n", "AVISO", javax.swing.JOptionPane.ERROR_MESSAGE);
-//                userSearch.requestFocus();
-//                return; //No se inserta los datos
-//            }
-            DAOUsers dao = new DAOUserImpl(); //Instancia de interface DAOUsers
-            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-            model.setRowCount(0);//Limpia las filas
-            dao.listar(usuarioAbuscar).forEach((u) -> model.addRow(new Object[]{u.getId(), u.getName(), u.getLast_name_p(), u.getLast_name_m(), u.getDomicilio(), u.getTel()})); //Imprime cada elemento de la lista en consola
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-        
-    }//GEN-LAST:event_buscarBtnActionPerformed
-
-    private void nuevoBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nuevoBtnActionPerformed
-        Dashboard.ShowJPanel(new UpUsers());
-    }//GEN-LAST:event_nuevoBtnActionPerformed
 
     private void editarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarBtnActionPerformed
         // TODO add your handling code here:
-//        System.out.println(jTable1.getSelectedRow());//Verificar que indice se selecciona
+        //        System.out.println(jTable1.getSelectedRow());//Verificar que indice se selecciona
         if (jTable1.getSelectedRow() > -1) {
             try {
                 int userId = (int) jTable1.getValueAt(jTable1.getSelectedRow(), 0);
@@ -226,9 +320,49 @@ public class Users extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_editarBtnActionPerformed
 
+    private void nuevoBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nuevoBtnActionPerformed
+        Dashboard.ShowJPanel(new UpUsers());
+    }//GEN-LAST:event_nuevoBtnActionPerformed
+
+    private void buscarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarBtnActionPerformed
+        // TODO add your handling code here:
+        try {
+            String usuarioAbuscar = userSearch.getText();
+            //            //Validaciones para datos ingresados
+            //            if (usuarioAbuscar.isEmpty()) { //No es vacío
+                //                javax.swing.JOptionPane.showMessageDialog(this, "Debes ingresar el nombre de usuario a buscar \n", "AVISO", javax.swing.JOptionPane.ERROR_MESSAGE);
+                //                userSearch.requestFocus();
+                //                return; //No se inserta los datos
+                //            }
+            DAOUsers dao = new DAOUserImpl(); //Instancia de interface DAOUsers
+            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+            model.setRowCount(0);//Limpia las filas
+            dao.listar(usuarioAbuscar).forEach((u) -> model.addRow(new Object[]{u.getId(), u.getName(), u.getLast_name_p(), u.getLast_name_m(), u.getDomicilio(), u.getTel()})); //Imprime cada elemento de la lista en consola
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
+    }//GEN-LAST:event_buscarBtnActionPerformed
+
     private void userSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userSearchActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_userSearchActionPerformed
+
+    private void userSearchFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_userSearchFocusLost
+        // TODO add your handling code here:
+        if(userSearch.getText().equals("")){
+            userSearch.setText("Buscar usuario...");
+            userSearch.setForeground(new Color(102,102,102));
+        }
+    }//GEN-LAST:event_userSearchFocusLost
+
+    private void userSearchFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_userSearchFocusGained
+        // TODO add your handling code here:
+        if(userSearch.getText().equals("Buscar usuario...")){
+            userSearch.setText("");
+            userSearch.setForeground(new Color(0,0,0));
+        }
+    }//GEN-LAST:event_userSearchFocusGained
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -236,11 +370,14 @@ public class Users extends javax.swing.JPanel {
     private javax.swing.JButton borrarBtn;
     private javax.swing.JButton buscarBtn;
     private javax.swing.JButton editarBtn;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JButton nuevoBtn;
-    private javax.swing.JLabel tittle;
     private javax.swing.JTextField userSearch;
     // End of variables declaration//GEN-END:variables
 }
