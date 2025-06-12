@@ -7,12 +7,9 @@ package com.mycompany.views;
 import com.mycompany.ilib.DAOUserImpl;
 import com.mycompany.ilib.Dashboard;
 import com.mycompany.interfaces.DAOUsers;
-import java.awt.BorderLayout;
 import java.awt.Color;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  *
@@ -350,7 +347,7 @@ public class Users extends javax.swing.JPanel {
 
     private void userSearchFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_userSearchFocusLost
         // TODO add your handling code here:
-        if(userSearch.getText().equals("")){
+        if(StringUtils.isBlank(userSearch.getText())){
             userSearch.setText("Buscar usuario...");
             userSearch.setForeground(new Color(102,102,102));
         }
@@ -358,7 +355,7 @@ public class Users extends javax.swing.JPanel {
 
     private void userSearchFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_userSearchFocusGained
         // TODO add your handling code here:
-        if(userSearch.getText().equals("Buscar usuario...")){
+        if(StringUtils.equals(userSearch.getText(),"Buscar usuario...")){
             userSearch.setText("");
             userSearch.setForeground(new Color(0,0,0));
         }

@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.apache.commons.lang3.StringUtils;
 
 public class DAOBooksImpl extends Database implements DAOBooks {
 public void registrarConLog(Books book) throws Exception {
@@ -174,7 +175,7 @@ public void registrarConLog(Books book) throws Exception {
         List<Books> lista = null;
         try {
             this.Conectar();
-            String Query = title.isEmpty() ? "SELECT * FROM books;" : "SELECT * FROM books WHERE title LIKE '%" + title + "%';";
+            String Query = StringUtils.isBlank(title) ? "SELECT * FROM books;" : "SELECT * FROM books WHERE title LIKE '%" + title + "%';";
             PreparedStatement st = this.conexion.prepareStatement(Query);
             lista = new ArrayList();
             ResultSet rs = st.executeQuery();

@@ -2,8 +2,8 @@ package com.mycompany.views;
 
 import com.mycompany.ilib.DAOUserImpl;
 import com.mycompany.interfaces.DAOUsers;
-import java.awt.BorderLayout;
 import java.awt.Color;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  *
@@ -205,7 +205,7 @@ public class UpUsers extends javax.swing.JPanel {
         String tel = phoneTxt.getText();
         
         //Validaciones para datos ingresados
-        if(nombre.isEmpty() || apP.isEmpty()|| apM.isEmpty() || dom.isEmpty() || tel.isEmpty()){ //No es vacío
+        if(StringUtils.isBlank(nombre) || StringUtils.isBlank(apP)|| StringUtils.isBlank(apM) || StringUtils.isBlank(dom) || StringUtils.isBlank(tel)){ //No es vacío
             javax.swing.JOptionPane.showMessageDialog(this, "Debe llenar todos los campos \n", "AVISO",javax.swing.JOptionPane.ERROR_MESSAGE);
             nameTxt.requestFocus();
             return; //No se inserta los datos

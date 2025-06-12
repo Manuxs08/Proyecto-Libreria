@@ -1,6 +1,5 @@
 package com.mycompany.views;
 
-import java.awt.BorderLayout;
 import com.mycompany.ilib.DAOBooksImpl;
 import com.mycompany.ilib.DAOLendingsImpl;
 import com.mycompany.ilib.DAOUserImpl;
@@ -10,6 +9,8 @@ import com.mycompany.interfaces.DAOUsers;
 import com.mycompany.utils.Utils;
 import java.awt.Color;
 import java.util.Date;
+import org.apache.commons.lang3.math.NumberUtils;
+import org.apache.commons.lang3.StringUtils;
 
 
 public class Returns extends javax.swing.JPanel {
@@ -126,15 +127,15 @@ public class Returns extends javax.swing.JPanel {
         String bookId = libroIdTxt.getText();
 
         // Validaciones para los campos
-        if (folio.isEmpty() || bookId.isEmpty()) {//Si esta vacaio
+        if (StringUtils.isBlank(folio) || StringUtils.isBlank(bookId)) {//Si esta vacio
             javax.swing.JOptionPane.showMessageDialog(this, "Debe llenar todos los campos. \n", "AVISO", javax.swing.JOptionPane.ERROR_MESSAGE);
             folioTxt.requestFocus();
             return;
-        } else if (!Utils.isNumeric(folio) || !Utils.isNumeric(bookId)) {//Si no es un numero entero
+        } else if (!StringUtils.isNumeric(folio) || !StringUtils.isNumeric(bookId)) {//Si no es un numero entero
             javax.swing.JOptionPane.showMessageDialog(this, "Los campos Folio y el ID del libro deben ser números enteros. \n", "AVISO", javax.swing.JOptionPane.ERROR_MESSAGE);
             folioTxt.requestFocus();
             return;
-        } else if (Integer.parseInt(folio) <= 0 || Integer.parseInt(bookId) <= 0) {//Si no es mayor que cero
+        } else if (NumberUtils.toInt(folio) <= 0 || NumberUtils.toInt(bookId) <= 0) {//Si no es mayor que cero
             javax.swing.JOptionPane.showMessageDialog(this, "Los campos Folio y el ID del libro deben ser mayor que 0. \n", "AVISO", javax.swing.JOptionPane.ERROR_MESSAGE);
             folioTxt.requestFocus();
             return;

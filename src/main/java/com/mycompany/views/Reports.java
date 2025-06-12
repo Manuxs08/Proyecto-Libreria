@@ -1,6 +1,5 @@
 package com.mycompany.views;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 import com.mycompany.ilib.DAOLendingsImpl;
 import com.mycompany.interfaces.DAOLendings;

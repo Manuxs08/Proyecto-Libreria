@@ -6,7 +6,7 @@ import com.mycompany.ilib.Dashboard;
 import com.mycompany.interfaces.DAOBooks;
 import java.awt.Color;
 import javax.swing.table.DefaultTableModel;
-
+import org.apache.commons.lang3.StringUtils;
 /**
  *
  * @author SOFIPIU19
@@ -293,7 +293,7 @@ public class Books extends javax.swing.JPanel {
 
     private void bookSearchFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_bookSearchFocusGained
         // TODO add your handling code here:
-        if(bookSearch.getText().equals("Buscar libro...")){
+        if(StringUtils.equals(bookSearch.getText(),"Buscar libro...")){
             bookSearch.setText("");
             bookSearch.setForeground(new Color(0,0,0));
         }
@@ -301,7 +301,7 @@ public class Books extends javax.swing.JPanel {
 
     private void bookSearchFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_bookSearchFocusLost
         // TODO add your handling code here:
-        if(bookSearch.getText().equals("")){
+        if(StringUtils.isBlank(bookSearch.getText())){
             bookSearch.setText("Buscar libro...");
             bookSearch.setForeground(new Color(102,102,102));
         }
