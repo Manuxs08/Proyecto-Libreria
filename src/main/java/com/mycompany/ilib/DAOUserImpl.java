@@ -7,6 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
+import org.apache.commons.lang3.StringUtils;
 
 public class DAOUserImpl extends Database implements DAOUsers {
 
@@ -91,7 +92,7 @@ public class DAOUserImpl extends Database implements DAOUsers {
         List<Users> lista = null;
         try {
             this.Conectar();
-            String Query = name.isEmpty() ? "SELECT * FROM users;" : "SELECT * FROM users WHERE name LIKE '%" + name + "%';";
+            String Query = StringUtils.isBlank(name) ? "SELECT * FROM users;" : "SELECT * FROM users WHERE name LIKE '%" + name + "%';";
             PreparedStatement st = this.conexion.prepareStatement(Query);
             lista = new ArrayList();
             ResultSet rs = st.executeQuery();

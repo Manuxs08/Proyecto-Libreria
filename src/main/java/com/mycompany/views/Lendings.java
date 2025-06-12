@@ -13,6 +13,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import com.mycompany.models.Users;
 import com.mycompany.models.Books;
+import org.apache.commons.lang3.math.NumberUtils;
+import org.apache.commons.lang3.StringUtils;
 
 
 public class Lendings extends javax.swing.JPanel {
@@ -337,16 +339,16 @@ public class Lendings extends javax.swing.JPanel {
         String folio = folioTxt.getText();
         String bookId = libroIdTxt.getText();
 
-        // Validaciones para los campos
-        if (folio.isEmpty() || bookId.isEmpty()) {
+        // Validaciones para los campos con Apache Commons
+        if (StringUtils.isBlank(folio) || StringUtils.isBlank(bookId)) {
             javax.swing.JOptionPane.showMessageDialog(this, "Debe llenar todos los campos. \n", "AVISO", javax.swing.JOptionPane.ERROR_MESSAGE);
             folioTxt.requestFocus();
             return;
-        } else if (!Utils.isNumeric(folio) || !Utils.isNumeric(bookId)) {
+        } else if (!StringUtils.isNumeric(folio) || !StringUtils.isNumeric(bookId)) {
             javax.swing.JOptionPane.showMessageDialog(this, "Los campos Folio y el ID del libro deben ser números enteros. \n", "AVISO", javax.swing.JOptionPane.ERROR_MESSAGE);
             folioTxt.requestFocus();
             return;
-        } else if (Integer.parseInt(folio) <= 0 || Integer.parseInt(bookId) <= 0) {
+        } else if (NumberUtils.toInt(folio) <= 0 || NumberUtils.toInt(bookId) <= 0) {
             javax.swing.JOptionPane.showMessageDialog(this, "Los campos Folio y el ID del libro deben ser mayor que 0. \n", "AVISO", javax.swing.JOptionPane.ERROR_MESSAGE);
             folioTxt.requestFocus();
             return;
@@ -356,7 +358,7 @@ public class Lendings extends javax.swing.JPanel {
             DAOUsers daoUsers = new DAOUserImpl();
             
             // Validamos existencia del usuario
-            com.mycompany.models.Users currentUser = daoUsers.getUserById(Integer.parseInt(folio));
+            com.mycompany.models.Users currentUser = daoUsers.getUserById(NumberUtils.toInt(folio));
             if (currentUser == null) {
                 javax.swing.JOptionPane.showMessageDialog(this, "No se encontró ningún usuario con ese folio. \n", "AVISO", javax.swing.JOptionPane.ERROR_MESSAGE);
                 folioTxt.requestFocus();
@@ -366,7 +368,7 @@ public class Lendings extends javax.swing.JPanel {
             DAOBooks daoBooks = new DAOBooksImpl();
             
             // Validamos existencia del libro
-            com.mycompany.models.Books currentBook = daoBooks.getBookById(Integer.parseInt(bookId));
+            com.mycompany.models.Books currentBook = daoBooks.getBookById(NumberUtils.toInt(bookId));
             if (currentBook == null){
                 javax.swing.JOptionPane.showMessageDialog(this, "No se encontró ningún libro con ese ID. \n", "AVISO", javax.swing.JOptionPane.ERROR_MESSAGE);
                 libroIdTxt.requestFocus();
@@ -415,9 +417,9 @@ public class Lendings extends javax.swing.JPanel {
         DAOUsers dao = new DAOUserImpl();
         Users user = new Users();
         
-        if(!folioTxt.getText().equals("")){
+        if(StringUtils.isNotBlank(folioTxt.getText())){
             try {
-                user = dao.getUserById(Integer.parseInt(folioTxt.getText()));
+                user = dao.getUserById(NumberUtils.toInt(folioTxt.getText()));
                 txtUserNombre.setText(user.getName());
                 txtUserApellidoP.setText(user.getLast_name_p());
                 txtUserApellidoM.setText(user.getLast_name_m());
@@ -440,9 +442,9 @@ public class Lendings extends javax.swing.JPanel {
         DAOBooks dao = new DAOBooksImpl();
         Books book = new Books();
         
-        if(!libroIdTxt.getText().equals("")){
+        if(StringUtils.isNotBlank(libroIdTxt.getText())){
             try {
-                book = dao.getBookById(Integer.parseInt(libroIdTxt.getText()));
+                book = dao.getBookById(NumberUtils.toInt(libroIdTxt.getText()));
                 txtBookTitulo.setText(book.getTitle());
                 txtBookAutor.setText(book.getAuthor());
                 txtBookCat.setText(book.getCategory());

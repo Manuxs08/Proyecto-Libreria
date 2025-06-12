@@ -1,11 +1,9 @@
 package com.mycompany.views;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
-import javax.swing.JPanel;
 import com.mycompany.ilib.DAOBooksImpl;
 import com.mycompany.interfaces.DAOBooks;
-import com.mycompany.utils.Utils;
+import org.apache.commons.lang3.StringUtils;
 
 public class UpBooks extends javax.swing.JPanel {
 
@@ -398,12 +396,12 @@ public class UpBooks extends javax.swing.JPanel {
         String ejem = ejemTxt.getText();
 
         // Validaciones para los campos
-        if (mtitle.isEmpty() || date.isEmpty() || author.isEmpty() || cat.isEmpty() || ed.isEmpty()
-                || lang.isEmpty() || pags.isEmpty() || desc.isEmpty() || stock.isEmpty() || disp.isEmpty() || ejem.isEmpty()) {
+        if (StringUtils.isBlank(mtitle) || StringUtils.isBlank(date) || StringUtils.isBlank(author) || StringUtils.isBlank(cat) || StringUtils.isBlank(ed)
+                || StringUtils.isBlank(lang) || StringUtils.isBlank(pags) || StringUtils.isBlank(desc) || StringUtils.isBlank(stock) || StringUtils.isBlank(disp) || StringUtils.isBlank(ejem)) {
             javax.swing.JOptionPane.showMessageDialog(this, "Debe llenar todos los campos. \n", "AVISO", javax.swing.JOptionPane.ERROR_MESSAGE);
             titleTxt.requestFocus();
             return;
-        } else if (!Utils.isNumeric(stock) || !Utils.isNumeric(disp)) {
+        } else if (!StringUtils.isNumeric(stock) || !StringUtils.isNumeric(disp)) {
             javax.swing.JOptionPane.showMessageDialog(this, "Los campos Stock y Disponibles deben ser números enteros. \n", "AVISO", javax.swing.JOptionPane.ERROR_MESSAGE);
             titleTxt.requestFocus();
             return;
