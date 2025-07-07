@@ -70,7 +70,7 @@ public class Dashboard extends javax.swing.JFrame {
         }
     }
 
-    public Dashboard() {
+    public Dashboard(String user) {
         initComponents();
         InitStyles();
         SetDate();
@@ -78,14 +78,16 @@ public class Dashboard extends javax.swing.JFrame {
         
         // Prueba de logging
         testLogging();
+        
+        employeeText.setText("Bienvenido, "+user);
     }
     
     
     private void InitStyles(){
-        mensaje.putClientProperty( "FlatLaf.style", "font: 14 $light.font" ); //tipografia 
-        mensaje.setForeground(Color.black); //color 
         navText.putClientProperty( "FlatLaf.style", "font: bold $h3.regular.font" ); //tipografia 
         navText.setForeground(Color.white); //color 
+        employeeText.putClientProperty( "FlatLaf.style", "font: bold $h3.regular.font" ); //tipografia 
+        employeeText.setForeground(Color.white); //color 
         dateText.putClientProperty( "FlatLaf.style", "font: 24 $light.font" );
         dateText.setForeground(Color.white);
         appName.putClientProperty( "FlatLaf.style", "font: bold $h1.regular.font" ); //tipografia 
@@ -138,8 +140,8 @@ private void testLogging() {
         header = new javax.swing.JPanel();
         navText = new javax.swing.JLabel();
         dateText = new javax.swing.JLabel();
+        employeeText = new javax.swing.JLabel();
         content = new javax.swing.JPanel();
-        mensaje = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1050, 660));
@@ -154,7 +156,7 @@ private void testLogging() {
         appName.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         appName.setForeground(new java.awt.Color(255, 255, 255));
         appName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        appName.setText("Luz del Saber");
+        appName.setText("Bibliotech");
 
         btn_prin.setBackground(new java.awt.Color(44, 62, 80));
         btn_prin.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -304,23 +306,20 @@ private void testLogging() {
         menu.setLayout(menuLayout);
         menuLayout.setHorizontalGroup(
             menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(menuLayout.createSequentialGroup()
-                .addGap(6, 6, 6)
-                .addComponent(appName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(6, 6, 6))
             .addComponent(btn_returns, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btn_prin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btn_lends, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addComponent(btn_reports, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btn_books, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btn_users, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(appName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         menuLayout.setVerticalGroup(
             menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(menuLayout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addComponent(appName)
                 .addGap(34, 34, 34)
+                .addComponent(appName)
+                .addGap(29, 29, 29)
                 .addGroup(menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(menuLayout.createSequentialGroup()
                         .addGap(100, 100, 100)
@@ -347,6 +346,8 @@ private void testLogging() {
 
         dateText.setText("Hoy es {dayname} {day}  de {month} de {year}");
 
+        employeeText.setText("Bienvenido, {user}");
+
         javax.swing.GroupLayout headerLayout = new javax.swing.GroupLayout(header);
         header.setLayout(headerLayout);
         headerLayout.setHorizontalGroup(
@@ -359,14 +360,22 @@ private void testLogging() {
                         .addContainerGap())
                     .addGroup(headerLayout.createSequentialGroup()
                         .addComponent(navText, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(561, 561, 561))))
+                        .addGap(263, 263, 263)
+                        .addComponent(employeeText, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(116, 116, 116))))
         );
         headerLayout.setVerticalGroup(
             headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(headerLayout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addComponent(navText)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(headerLayout.createSequentialGroup()
+                        .addGap(37, 37, 37)
+                        .addComponent(navText)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, headerLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(employeeText)
+                        .addGap(4, 4, 4)))
                 .addComponent(dateText, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(54, Short.MAX_VALUE))
         );
@@ -387,8 +396,6 @@ private void testLogging() {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        mensaje.setText("Nuestra nueva aplicacion!");
-
         javax.swing.GroupLayout backgroundLayout = new javax.swing.GroupLayout(background);
         background.setLayout(backgroundLayout);
         backgroundLayout.setHorizontalGroup(
@@ -396,24 +403,17 @@ private void testLogging() {
             .addGroup(backgroundLayout.createSequentialGroup()
                 .addComponent(menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(content, javax.swing.GroupLayout.DEFAULT_SIZE, 818, Short.MAX_VALUE)
                     .addGroup(backgroundLayout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(mensaje, javax.swing.GroupLayout.PREFERRED_SIZE, 526, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(content, javax.swing.GroupLayout.DEFAULT_SIZE, 818, Short.MAX_VALUE)
-                        .addGroup(backgroundLayout.createSequentialGroup()
-                            .addGap(2, 2, 2)
-                            .addComponent(header, javax.swing.GroupLayout.PREFERRED_SIZE, 816, Short.MAX_VALUE)))))
+                        .addGap(2, 2, 2)
+                        .addComponent(header, javax.swing.GroupLayout.DEFAULT_SIZE, 816, Short.MAX_VALUE))))
         );
         backgroundLayout.setVerticalGroup(
             backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(menu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(backgroundLayout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addComponent(mensaje, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
                 .addComponent(header, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(67, 67, 67)
                 .addComponent(content, javax.swing.GroupLayout.DEFAULT_SIZE, 417, Short.MAX_VALUE)
                 .addContainerGap())
         );
@@ -526,19 +526,6 @@ private void testLogging() {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        FlatMaterialLighterIJTheme.setup();
-        
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            
-            public void run() {
-                new Dashboard().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel appName;
@@ -551,8 +538,8 @@ private void testLogging() {
     private javax.swing.JButton btn_users;
     private static javax.swing.JPanel content;
     private javax.swing.JLabel dateText;
+    private javax.swing.JLabel employeeText;
     private javax.swing.JPanel header;
-    private javax.swing.JLabel mensaje;
     private javax.swing.JPanel menu;
     private javax.swing.JLabel navText;
     // End of variables declaration//GEN-END:variables

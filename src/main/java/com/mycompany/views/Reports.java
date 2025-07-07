@@ -1,8 +1,15 @@
 package com.mycompany.views;
 
+import com.mycompany.ilib.DAOBooksImpl;
 import java.awt.Color;
 import com.mycompany.ilib.DAOLendingsImpl;
+import com.mycompany.ilib.DAOUserImpl;
+import com.mycompany.interfaces.DAOBooks;
 import com.mycompany.interfaces.DAOLendings;
+import com.mycompany.interfaces.DAOUsers;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import com.mycompany.models.Users;
 import javax.swing.table.DefaultTableModel;
 
 
@@ -22,10 +29,19 @@ public class Reports extends javax.swing.JPanel {
     private void LoadLendings() {
         try {
             DAOLendings dao = new DAOLendingsImpl();
+            DAOUsers dao2 = new DAOUserImpl();
+            DAOBooks dao3 = new DAOBooksImpl();
             DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
             // Limpiamos tabla
             model.setRowCount(0);
-            dao.listar().forEach((u) -> model.addRow(new Object[]{u.getUser_id(), u.getBook_id(), u.getDate_out(), u.getDate_return()}));
+            dao.listar().forEach((u) -> {
+                try {
+                    model.addRow(new Object[]{u.getUser_id(), dao2.getUserById(u.getUser_id()).getName() ,u.getBook_id(), dao3.getBookById(u.getBook_id()).getTitle(), u.getDate_out(), u.getDate_return()});
+                } catch (Exception ex) {
+                    Logger.getLogger(Reports.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            });
+                    
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -76,25 +92,25 @@ public class Reports extends javax.swing.JPanel {
         jTable1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "ID Usuario", "ID Libro", "Fecha de salida", "Fecha de entrega"
+                "ID Usuario", "Usuario", "ID Libro", "Libro", "Fecha de salida", "Fecha de entrega"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class, java.lang.Object.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {

@@ -120,13 +120,14 @@ public class DAOUserImpl extends Database implements DAOUsers {
 
     @Override
     public Users getUserById(int userId) throws Exception {
-        Users user = new Users();
+        Users user = null;
         try {
             this.Conectar();
-            PreparedStatement st = this.conexion.prepareStatement("SELECT * FROM users WHERE id=? LIMIT 1;");
+            PreparedStatement st = this.conexion.prepareStatement("SELECT * FROM users WHERE id = ? LIMIT 1;");
             st.setInt(1, userId);
             ResultSet rs = st.executeQuery();
             while (rs.next()) {
+                user = new Users();
                 user.setId(rs.getInt("id"));
                 user.setName(rs.getString("name"));
                 user.setLast_name_p(rs.getString("last_name_p"));

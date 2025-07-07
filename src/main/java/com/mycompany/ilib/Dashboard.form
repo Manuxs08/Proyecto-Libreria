@@ -55,16 +55,10 @@
               <Group type="102" attributes="0">
                   <Component id="menu" min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="content" pref="818" max="32767" attributes="0"/>
                       <Group type="102" attributes="0">
-                          <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                          <Component id="mensaje" min="-2" pref="526" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="content" pref="818" max="32767" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="2" pref="2" max="-2" attributes="0"/>
-                              <Component id="header" pref="816" max="32767" attributes="0"/>
-                          </Group>
+                          <EmptySpace min="2" pref="2" max="-2" attributes="0"/>
+                          <Component id="header" pref="816" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -74,11 +68,8 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Component id="menu" max="32767" attributes="0"/>
               <Group type="102" attributes="0">
-                  <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
-                  <Component id="mensaje" min="-2" pref="31" max="-2" attributes="0"/>
-                  <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
                   <Component id="header" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
                   <Component id="content" pref="417" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -99,25 +90,21 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
-                      <Component id="appName" max="32767" attributes="0"/>
-                      <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                  </Group>
                   <Component id="btn_returns" max="32767" attributes="0"/>
                   <Component id="btn_prin" max="32767" attributes="0"/>
                   <Component id="btn_lends" min="-2" pref="270" max="-2" attributes="0"/>
                   <Component id="btn_reports" max="32767" attributes="0"/>
                   <Component id="btn_books" max="32767" attributes="0"/>
                   <Component id="btn_users" max="32767" attributes="0"/>
+                  <Component id="appName" alignment="1" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-                      <Component id="appName" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                      <Component id="appName" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <EmptySpace min="100" pref="100" max="-2" attributes="0"/>
@@ -155,7 +142,7 @@
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="Luz del Saber"/>
+                <Property name="text" type="java.lang.String" value="Bibliotech"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="btn_prin">
@@ -392,7 +379,9 @@
                           </Group>
                           <Group type="102" attributes="0">
                               <Component id="navText" max="32767" attributes="0"/>
-                              <EmptySpace min="-2" pref="561" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="263" max="-2" attributes="0"/>
+                              <Component id="employeeText" max="32767" attributes="0"/>
+                              <EmptySpace min="-2" pref="116" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -401,9 +390,18 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-                      <Component id="navText" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                              <Component id="navText" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="employeeText" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
                       <Component id="dateText" min="-2" pref="31" max="-2" attributes="0"/>
                       <EmptySpace pref="54" max="32767" attributes="0"/>
                   </Group>
@@ -419,6 +417,11 @@
             <Component class="javax.swing.JLabel" name="dateText">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Hoy es {dayname} {day}  de {month} de {year}"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="employeeText">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Bienvenido, {user}"/>
               </Properties>
             </Component>
           </SubComponents>
@@ -455,11 +458,6 @@
             </DimensionLayout>
           </Layout>
         </Container>
-        <Component class="javax.swing.JLabel" name="mensaje">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Nuestra nueva aplicacion!"/>
-          </Properties>
-        </Component>
       </SubComponents>
     </Container>
   </SubComponents>
