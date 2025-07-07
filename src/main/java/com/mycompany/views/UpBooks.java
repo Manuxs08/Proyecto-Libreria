@@ -395,7 +395,7 @@ public class UpBooks extends javax.swing.JPanel {
         String disp = dispTxt.getText();
         String ejem = ejemTxt.getText();
 
-        // Validaciones para los campos
+        // Validaciones para los campos con Apache Commons
         if (StringUtils.isBlank(mtitle) || StringUtils.isBlank(date) || StringUtils.isBlank(author) || StringUtils.isBlank(cat) || StringUtils.isBlank(ed)
                 || StringUtils.isBlank(lang) || StringUtils.isBlank(pags) || StringUtils.isBlank(desc) || StringUtils.isBlank(stock) || StringUtils.isBlank(disp) || StringUtils.isBlank(ejem)) {
             javax.swing.JOptionPane.showMessageDialog(this, "Debe llenar todos los campos. \n", "AVISO", javax.swing.JOptionPane.ERROR_MESSAGE);
