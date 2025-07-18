@@ -28,8 +28,8 @@ public class DAOUserImpl extends Database implements DAOUsers {
     }
 
     // Facade: método simplificado para listar usuarios por nombre.
-    public List<Users> buscarUsuariosPorNombre(String nombre) throws Exception {
-        return this.listar(nombre);
+    public List<Users> buscarUsuariosPorNombre(int catIndex, String input) throws Exception {
+        return this.listar(catIndex,input);
     }
 
     // Implementación existente
@@ -88,11 +88,32 @@ public class DAOUserImpl extends Database implements DAOUsers {
     }
 
     @Override
-    public List<Users> listar(String name) throws Exception {
+    public List<Users> listar(int catIndex, String input) throws Exception {
         List<Users> lista = null;
+        String cat = "";
+        switch(catIndex){
+            case 0: //ID
+                cat = "id";
+                break;
+            case 1: //NOMBRE
+                cat = "name";
+                break;
+            case 2: //APELLIDO-PATERNO
+                cat = "last_name_p";
+                break;
+            case 3: //APELLIDO-MATERNO
+                cat = "last_name_m";
+                break;
+            case 4: //DOMICILIO
+                cat = "domicilio";
+                break;
+            case 5: //TELEFONO
+                cat = "tel";
+                break;
+        }
         try {
             this.Conectar();
-            String Query = StringUtils.isBlank(name) ? "SELECT * FROM users;" : "SELECT * FROM users WHERE name LIKE '%" + name + "%';";
+            String Query = StringUtils.isBlank(input) ? "SELECT * FROM users;" : "SELECT * FROM users WHERE "+cat+" LIKE '" + input + "%';";
             PreparedStatement st = this.conexion.prepareStatement(Query);
             lista = new ArrayList();
             ResultSet rs = st.executeQuery();

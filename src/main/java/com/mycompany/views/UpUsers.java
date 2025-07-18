@@ -93,7 +93,7 @@ public class UpUsers extends javax.swing.JPanel {
             }
         });
 
-        apMLbl.setText("Apellido Marterno");
+        apMLbl.setText("Apellido Materno");
 
         title.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         title.setText("Registar nuevo Usuario");

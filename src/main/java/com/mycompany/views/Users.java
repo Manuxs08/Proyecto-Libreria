@@ -36,7 +36,7 @@ public class Users extends javax.swing.JPanel {
             //Se guarda el listado de usuarios de la base de datos
             //List<com.mycompany.models.Users> lista = dao.listar();
             DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-            dao.listar("").forEach((u) -> model.addRow(new Object[]{u.getId(),u.getName(),u.getLast_name_p(),u.getLast_name_m(),u.getDomicilio(),u.getTel()})); //Imprime cada elemento de la lista en consola
+            dao.listar(0,"").forEach((u) -> model.addRow(new Object[]{u.getId(),u.getName(),u.getLast_name_p(),u.getLast_name_m(),u.getDomicilio(),u.getTel()})); //Imprime cada elemento de la lista en consola
         } catch(Exception e){
             System.out.println(e.getMessage());
         }
@@ -57,8 +57,8 @@ public class Users extends javax.swing.JPanel {
         background = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         userSearch = new javax.swing.JTextField();
-        buscarBtn = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        searchFilter = new javax.swing.JComboBox<>();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -93,21 +93,16 @@ public class Users extends javax.swing.JPanel {
                 userSearchActionPerformed(evt);
             }
         });
-
-        buscarBtn.setBackground(new java.awt.Color(223, 38, 114));
-        buscarBtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        buscarBtn.setForeground(new java.awt.Color(255, 255, 255));
-        buscarBtn.setText("Buscar");
-        buscarBtn.setBorderPainted(false);
-        buscarBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        buscarBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buscarBtnActionPerformed(evt);
+        userSearch.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                userSearchKeyReleased(evt);
             }
         });
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setText("Gestión de Usuarios");
+
+        searchFilter.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ID", "Nombre", "Apellido Paterno", "Apellido Materno", "Domicilio", "Teléfono" }));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -116,19 +111,19 @@ public class Users extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(36, 36, 36)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 120, Short.MAX_VALUE)
-                .addComponent(buscarBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(95, 95, 95)
+                .addComponent(searchFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(userSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(64, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buscarBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(userSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(userSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(searchFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(24, 24, 24)
@@ -273,7 +268,7 @@ public class Users extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, 796, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -321,26 +316,6 @@ public class Users extends javax.swing.JPanel {
         Dashboard.ShowJPanel(new UpUsers());
     }//GEN-LAST:event_nuevoBtnActionPerformed
 
-    private void buscarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarBtnActionPerformed
-        // TODO add your handling code here:
-        try {
-            String usuarioAbuscar = userSearch.getText();
-            //            //Validaciones para datos ingresados
-            //            if (usuarioAbuscar.isEmpty()) { //No es vacío
-                //                javax.swing.JOptionPane.showMessageDialog(this, "Debes ingresar el nombre de usuario a buscar \n", "AVISO", javax.swing.JOptionPane.ERROR_MESSAGE);
-                //                userSearch.requestFocus();
-                //                return; //No se inserta los datos
-                //            }
-            DAOUsers dao = new DAOUserImpl(); //Instancia de interface DAOUsers
-            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-            model.setRowCount(0);//Limpia las filas
-            dao.listar(usuarioAbuscar).forEach((u) -> model.addRow(new Object[]{u.getId(), u.getName(), u.getLast_name_p(), u.getLast_name_m(), u.getDomicilio(), u.getTel()})); //Imprime cada elemento de la lista en consola
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-
-    }//GEN-LAST:event_buscarBtnActionPerformed
-
     private void userSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userSearchActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_userSearchActionPerformed
@@ -361,11 +336,22 @@ public class Users extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_userSearchFocusGained
 
+    private void userSearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_userSearchKeyReleased
+        // TODO add your handling code here:
+        try{
+            DAOUsers dao = new DAOUserImpl();
+            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+            model.setRowCount(0);
+            dao.listar(searchFilter.getSelectedIndex(),userSearch.getText()).forEach((u) -> model.addRow(new Object[]{u.getId(),u.getName(),u.getLast_name_p(),u.getLast_name_m(),u.getDomicilio(),u.getTel()})); //Imprime cada elemento de la lista en consola
+        } catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+    }//GEN-LAST:event_userSearchKeyReleased
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel background;
     private javax.swing.JButton borrarBtn;
-    private javax.swing.JButton buscarBtn;
     private javax.swing.JButton editarBtn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel6;
@@ -375,6 +361,7 @@ public class Users extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JButton nuevoBtn;
+    private javax.swing.JComboBox<String> searchFilter;
     private javax.swing.JTextField userSearch;
     // End of variables declaration//GEN-END:variables
 }

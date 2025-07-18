@@ -7,6 +7,6 @@ public interface DAOBooks {//Metodos a utilizar
     public void registrar(Books book) throws Exception;
     public void modificar(Books book) throws Exception;
     public void eliminar(int bookId) throws Exception;
-    public List<Books> listar(String title) throws Exception;
+    public List<Books> listar(int catIndex, String input) throws Exception;
     public Books getBookById(int bookId) throws Exception;
 }

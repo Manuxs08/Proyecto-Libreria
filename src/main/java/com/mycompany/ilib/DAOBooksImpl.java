@@ -18,7 +18,7 @@ public void registrarConLog(Books book) throws Exception {
     try {
         this.Conectar();
         PreparedStatement st = this.conexion.prepareStatement(
-            "INSERT INTO books(title, date, author, category, edit, lang, pages, description, ejemplares, stock, available) VALUES(?,?,?,?,?,?,?,?,?,?,?);"
+            "INSERT INTO books(title, date, author, category, edit, lang, image, pages, description, ejemplares, stock, available) VALUES(?,?,?,?,?,?,?,?,?,?,?,?);"
         );
         st.setString(1, book.getTitle());
         st.setString(2, book.getDate());
@@ -26,11 +26,12 @@ public void registrarConLog(Books book) throws Exception {
         st.setString(4, book.getCategory());
         st.setString(5, book.getEdit());
         st.setString(6, book.getLang());
-        st.setString(7, book.getPages());
-        st.setString(8, book.getDescription());
-        st.setString(9, book.getEjemplares());
-        st.setInt(10, book.getStock());
-        st.setInt(11, book.getAvailable());
+        st.setString(7, book.getImage());
+        st.setString(8, book.getPages());
+        st.setString(9, book.getDescription());
+        st.setString(10, book.getEjemplares());
+        st.setInt(11, book.getStock());
+        st.setInt(12, book.getAvailable());
         st.executeUpdate();
         st.close();
         logger.info("Libro registrado correctamente: {}", book.getTitle());
@@ -44,7 +45,7 @@ public void registrarConLog(Books book) throws Exception {
 }
     // Facade: método simplificado para registrar un libro
     public void registrarLibro(String title, String date, String author, String category, String edit, 
-                               String lang, String pages, String description, String ejemplares, 
+                               String lang, String image, String pages, String description, String ejemplares, 
                                int stock, int available) throws Exception {
         Books book = new Books();
         book.setTitle(title);
@@ -53,6 +54,7 @@ public void registrarConLog(Books book) throws Exception {
         book.setCategory(category);
         book.setEdit(edit);
         book.setLang(lang);
+        book.setImage(image);
         book.setPages(pages);
         book.setDescription(description);
         book.setEjemplares(ejemplares);
@@ -88,8 +90,8 @@ public void registrarConLog(Books book) throws Exception {
     }
 
     // Facade: listar libros por título
-    public List<Books> listarLibros(String title) throws Exception {
-        return this.listar(title);
+    public List<Books> listarLibros(int catIndex, String input) throws Exception {
+        return this.listar(catIndex, input);
     }
 
     // Implementación existente: registrar un libro
@@ -97,18 +99,19 @@ public void registrarConLog(Books book) throws Exception {
     public void registrar(Books book) throws Exception {
         try {
             this.Conectar();
-            PreparedStatement st = this.conexion.prepareStatement("INSERT INTO books(title, date, author, category, edit, lang, pages, description, ejemplares, stock, available) VALUES(?,?,?,?,?,?,?,?,?,?,?);");
+            PreparedStatement st = this.conexion.prepareStatement("INSERT INTO books(title, date, author, category, edit, lang, image, pages, description, ejemplares, stock, available) VALUES(?,?,?,?,?,?,?,?,?,?,?,?);");
             st.setString(1, book.getTitle());
             st.setString(2, book.getDate());
             st.setString(3, book.getAuthor());
             st.setString(4, book.getCategory());
             st.setString(5, book.getEdit());
             st.setString(6, book.getLang());
-            st.setString(7, book.getPages());
-            st.setString(8, book.getDescription());
-            st.setString(9, book.getEjemplares());
-            st.setInt(10, book.getStock());
-            st.setInt(11, book.getAvailable());
+            st.setString(7, book.getImage());
+            st.setString(8, book.getPages());
+            st.setString(9, book.getDescription());
+            st.setString(10, book.getEjemplares());
+            st.setInt(11, book.getStock());
+            st.setInt(12, book.getAvailable());
             st.executeUpdate();
             st.close();
         } catch(Exception e) {
@@ -171,11 +174,35 @@ public void registrarConLog(Books book) throws Exception {
 
     // Implementación existente: listar libros
     @Override
-    public List<Books> listar(String title) throws Exception {
+    public List<Books> listar(int catIndex, String input) throws Exception {
         List<Books> lista = null;
+        String cat = "";
+        switch(catIndex){
+            case 0: //ID
+                cat = "id";
+                break;
+            case 1: //TITULO
+                cat = "title";
+                break;
+            case 2: //FECHA-PUBLICACION
+                cat = "date";
+                break;
+            case 3: //AUTOR
+                cat = "author";
+                break;
+            case 4: //CATEGORIA
+                cat = "category";
+                break;
+            case 5: //EDITORIAL
+                cat = "edit";
+                break;
+            case 6: //IDIOMA
+                cat = "lang";
+                break;
+        }
         try {
             this.Conectar();
-            String Query = StringUtils.isBlank(title) ? "SELECT * FROM books;" : "SELECT * FROM books WHERE title LIKE '%" + title + "%';";
+            String Query = StringUtils.isBlank(input) ? "SELECT * FROM books;" : "SELECT * FROM books WHERE "+cat+" LIKE '"+ input + "%';";
             PreparedStatement st = this.conexion.prepareStatement(Query);
             lista = new ArrayList();
             ResultSet rs = st.executeQuery();
@@ -188,6 +215,7 @@ public void registrarConLog(Books book) throws Exception {
                 book.setCategory(rs.getString("category"));
                 book.setEdit(rs.getString("edit"));
                 book.setLang(rs.getString("lang"));
+                book.setImage(rs.getString("image"));
                 book.setPages(rs.getString("pages"));
                 book.setDescription(rs.getString("description"));
                 book.setEjemplares(rs.getString("ejemplares"));
@@ -223,6 +251,7 @@ public void registrarConLog(Books book) throws Exception {
                 book.setCategory(rs.getString("category"));
                 book.setEdit(rs.getString("edit"));
                 book.setLang(rs.getString("lang"));
+                book.setImage(rs.getString("image"));
                 book.setPages(rs.getString("pages"));
                 book.setDescription(rs.getString("description"));
                 book.setEjemplares(rs.getString("ejemplares"));

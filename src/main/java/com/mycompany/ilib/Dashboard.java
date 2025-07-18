@@ -106,7 +106,7 @@ public class Dashboard extends javax.swing.JFrame {
     }
     //Metodo estatico para mostrar panel
     public static void ShowJPanel(JPanel p){
-        p.setSize(750,430);
+        p.setSize(content.getWidth(), content.getHeight());
         p.setLocation(0,0);
         
         content.removeAll();
@@ -384,17 +384,7 @@ private void testLogging() {
         content.setForeground(new java.awt.Color(255, 255, 255));
         content.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         content.setPreferredSize(new java.awt.Dimension(750, 439));
-
-        javax.swing.GroupLayout contentLayout = new javax.swing.GroupLayout(content);
-        content.setLayout(contentLayout);
-        contentLayout.setHorizontalGroup(
-            contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        contentLayout.setVerticalGroup(
-            contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
+        content.setLayout(new java.awt.BorderLayout());
 
         javax.swing.GroupLayout backgroundLayout = new javax.swing.GroupLayout(background);
         background.setLayout(backgroundLayout);
@@ -413,8 +403,8 @@ private void testLogging() {
             .addComponent(menu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(backgroundLayout.createSequentialGroup()
                 .addComponent(header, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(67, 67, 67)
-                .addComponent(content, javax.swing.GroupLayout.DEFAULT_SIZE, 417, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(content, javax.swing.GroupLayout.DEFAULT_SIZE, 478, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
