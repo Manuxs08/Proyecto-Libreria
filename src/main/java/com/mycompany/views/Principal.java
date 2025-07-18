@@ -13,25 +13,25 @@ public class Principal extends javax.swing.JPanel {
     private void InitStyles(){
         tittle.putClientProperty( "FlatLaf.style", "font: bold $h3.regular.font" );
         tittle.setForeground(Color.black);
-        jLabel22.putClientProperty( "FlatLaf.style", "large" ); //tipografia 
+        jLabel22.putClientProperty( "FlatLaf.style", "font: large" ); //tipografia 
         jLabel22.setForeground(Color.black); //color 
-        jLabel21.putClientProperty( "FlatLaf.style", "large" ); //tipografia 
+        jLabel21.putClientProperty( "FlatLaf.style", "font: large" ); //tipografia 
         jLabel21.setForeground(Color.black); //color 
-        jLabel20.putClientProperty( "FlatLaf.style", "large" ); //tipografia 
+        jLabel20.putClientProperty( "FlatLaf.style", "font: large" ); //tipografia 
         jLabel20.setForeground(Color.black); //color 
-        jLabel19.putClientProperty( "FlatLaf.style", "large" ); //tipografia 
+        jLabel19.putClientProperty( "FlatLaf.style", "font: large" ); //tipografia 
         jLabel19.setForeground(Color.black); //color
-        jLabel18.putClientProperty( "FlatLaf.style", "large" ); //tipografia 
+        jLabel18.putClientProperty( "FlatLaf.style", "font: large" ); //tipografia 
         jLabel18.setForeground(Color.black); //color 
-        jLabel17.putClientProperty( "FlatLaf.style", "large" ); //tipografia 
+        jLabel17.putClientProperty( "FlatLaf.style", "font: large" ); //tipografia 
         jLabel17.setForeground(Color.black); //color
-        jLabel16.putClientProperty( "FlatLaf.style", "large" ); //tipografia 
+        jLabel16.putClientProperty( "FlatLaf.style", "font: large" ); //tipografia 
         jLabel16.setForeground(Color.black); //color 
-        jLabel15.putClientProperty( "FlatLaf.style", "large" ); //tipografia 
+        jLabel15.putClientProperty( "FlatLaf.style", "font: large" ); //tipografia 
         jLabel15.setForeground(Color.black); //color
-        jLabel14.putClientProperty( "FlatLaf.style", "large" ); //tipografia 
+        jLabel14.putClientProperty( "FlatLaf.style", "font: large" ); //tipografia 
         jLabel14.setForeground(Color.black); //color
-        jLabel13.putClientProperty( "FlatLaf.style", "large" ); //tipografia 
+        jLabel13.putClientProperty( "FlatLaf.style", "font: large" ); //tipografia 
         jLabel13.setForeground(Color.black); //color
     }
 

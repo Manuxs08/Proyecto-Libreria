@@ -16,10 +16,33 @@ public class Login extends javax.swing.JFrame {
     /**
      * Creates new form Login
      */
-    public Login() {
+ public Login() {
         initComponents();
-    }
 
+        // Centrar ventana
+        setLocationRelativeTo(null);
+
+        // Título y diseño
+        setTitle("Inicio de Sesión - iLib");
+        setResizable(false);
+        getContentPane().setBackground(new java.awt.Color(60, 63, 65)); // gris oscuro
+
+        // Estilo de etiquetas
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+
+        // Campos de texto
+        txtUser.setBackground(new java.awt.Color(255, 255, 255));
+        txtUser.setForeground(new java.awt.Color(0, 0, 0));
+
+        txtClave.setBackground(new java.awt.Color(255, 255, 255));
+        txtClave.setForeground(new java.awt.Color(0, 0, 0));
+
+        // Botón
+        btnLogin.setBackground(new java.awt.Color(33, 150, 243)); // azul
+        btnLogin.setForeground(new java.awt.Color(255, 255, 255));
+        btnLogin.setFocusPainted(false);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -45,6 +68,14 @@ public class Login extends javax.swing.JFrame {
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLoginActionPerformed(evt);
+            }
+        });
+
+        txtClave.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
+            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
+                txtClaveInputMethodTextChanged(evt);
             }
         });
 
@@ -110,7 +141,7 @@ public class Login extends javax.swing.JFrame {
                     javax.swing.JOptionPane.showMessageDialog(this, "La contraseña es incorrecta. Si crees que se trata de un error consulta con la administración", "ERROR", javax.swing.JOptionPane.ERROR_MESSAGE);
                     txtClave.requestFocus();
                 }else{
-                    javax.swing.JOptionPane.showMessageDialog(this, "Inicio de Sesion Exitoso", "ERROR", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+                    javax.swing.JOptionPane.showMessageDialog(this, "Inicio de Sesion Exitoso", "AVISO", javax.swing.JOptionPane.INFORMATION_MESSAGE);
                     dispose();
                     new Dashboard(txtUser.getText()).setVisible(true);
                 }
@@ -120,6 +151,37 @@ public class Login extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_btnLoginActionPerformed
+
+    private void txtClaveInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_txtClaveInputMethodTextChanged
+        // TODO add your handling code here:
+        if (StringUtils.isBlank(txtUser.getText())) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Por favor, ingrese el nombre de usuario", "AVISO", javax.swing.JOptionPane.ERROR_MESSAGE);
+            txtUser.requestFocus();
+            return;
+        }else if (StringUtils.isBlank(txtClave.getText())) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Por favor, ingrese la clave", "AVISO", javax.swing.JOptionPane.ERROR_MESSAGE);
+            txtClave.requestFocus();
+            return;
+        }
+        try{
+            DAOEmployees dao = new DAOEmployeesImpl();
+            if(dao.getEmployeeByUser(txtUser.getText()) == null){
+                javax.swing.JOptionPane.showMessageDialog(this, "El usuario no se encuentra registrado. Si crees que se trata de un error consulta con la administración", "ERROR", javax.swing.JOptionPane.ERROR_MESSAGE);
+                txtUser.requestFocus();
+            }else{
+                if(dao.getEmployee(txtUser.getText(), txtClave.getText()) == null){
+                    javax.swing.JOptionPane.showMessageDialog(this, "La contraseña es incorrecta. Si crees que se trata de un error consulta con la administración", "ERROR", javax.swing.JOptionPane.ERROR_MESSAGE);
+                    txtClave.requestFocus();
+                }else{
+                    javax.swing.JOptionPane.showMessageDialog(this, "Inicio de Sesion Exitoso", "ERROR", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+                    dispose();
+                    new Dashboard(txtUser.getText()).setVisible(true);
+                }
+            }
+        }catch(Exception e){
+            System.out.println(e);
+        }
+    }//GEN-LAST:event_txtClaveInputMethodTextChanged
 
     /**
      * @param args the command line arguments

@@ -9,6 +9,7 @@ public class Books {
     private String category;
     private String edit;
     private String lang;
+    private String image;
     private String pages;
     private String description;
     private String ejemplares;
@@ -41,6 +42,10 @@ public class Books {
 
     public String getLang() {
         return lang;
+    }
+    
+    public String getImage(){
+        return image;
     }
 
     public String getPages() {
@@ -89,6 +94,10 @@ public class Books {
 
     public void setLang(String lang) {
         this.lang = lang;
+    }
+    
+    public void setImage(String image){
+        this.image = image;
     }
 
     public void setPages(String pages) {

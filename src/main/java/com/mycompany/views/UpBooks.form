@@ -24,14 +24,14 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="background" alignment="0" max="32767" attributes="0"/>
+          <Component id="background" min="-2" pref="1110" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <Component id="background" pref="432" max="32767" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
+              <Component id="background" min="-2" pref="432" max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -77,40 +77,47 @@
                               <Group type="102" attributes="0">
                                   <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <Component id="stockTxt" min="-2" pref="130" max="-2" attributes="0"/>
-                                          <EmptySpace max="32767" attributes="0"/>
-                                          <Component id="dispTxt" min="-2" pref="130" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="langLbl" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="268" max="-2" attributes="0"/>
+                                          <Component id="lblCover" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <Group type="102" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="langLbl" min="-2" max="-2" attributes="0"/>
-                                              <Component id="langTxt" min="-2" pref="280" max="-2" attributes="0"/>
-                                              <Component id="pagsLbl" min="-2" max="-2" attributes="0"/>
-                                              <Component id="pagsTxt" min="-2" pref="280" max="-2" attributes="0"/>
-                                              <Component id="descLbl" min="-2" max="-2" attributes="0"/>
-                                              <Component id="descTxt" min="-2" pref="280" max="-2" attributes="0"/>
-                                              <Group type="102" attributes="0">
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Component id="stockTxt" min="-2" pref="130" max="-2" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                                                  <Component id="dispTxt" min="-2" pref="130" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Component id="pagsLbl" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="pagsTxt" alignment="0" min="-2" pref="280" max="-2" attributes="0"/>
+                                              <Component id="descLbl" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="descTxt" alignment="0" min="-2" pref="280" max="-2" attributes="0"/>
+                                              <Group type="102" alignment="0" attributes="0">
                                                   <Component id="stockLbl" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace min="121" pref="121" max="-2" attributes="0"/>
                                                   <Component id="dispLbl" min="-2" max="-2" attributes="0"/>
                                               </Group>
-                                              <Component id="ejemLbl" min="-2" max="-2" attributes="0"/>
-                                              <Component id="ejemTxt" min="-2" pref="280" max="-2" attributes="0"/>
+                                              <Component id="ejemLbl" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="ejemTxt" alignment="0" min="-2" pref="280" max="-2" attributes="0"/>
+                                              <Component id="langTxt" alignment="0" min="-2" pref="280" max="-2" attributes="0"/>
                                           </Group>
-                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="imageChooser" min="-2" pref="396" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="109" max="-2" attributes="0"/>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
                                   <Component id="button" min="-2" pref="138" max="-2" attributes="0"/>
-                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="btnCancel" min="-2" pref="138" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
                   </Group>
-                  <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -148,33 +155,49 @@
                       </Group>
                       <Component id="jSeparator1" min="-2" pref="370" max="-2" attributes="0"/>
                       <Group type="102" attributes="0">
-                          <Component id="langLbl" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="14" pref="14" max="-2" attributes="0"/>
-                          <Component id="langTxt" min="-2" pref="30" max="-2" attributes="0"/>
-                          <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                          <Component id="pagsLbl" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="4" pref="4" max="-2" attributes="0"/>
-                          <Component id="pagsTxt" min="-2" pref="30" max="-2" attributes="0"/>
-                          <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                          <Component id="descLbl" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="4" pref="4" max="-2" attributes="0"/>
-                          <Component id="descTxt" min="-2" pref="30" max="-2" attributes="0"/>
-                          <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="stockLbl" min="-2" max="-2" attributes="0"/>
-                              <Component id="dispLbl" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Component id="langLbl" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="14" pref="14" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="lblCover" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                              </Group>
                           </Group>
-                          <EmptySpace min="4" pref="4" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="stockTxt" min="-2" pref="30" max="-2" attributes="0"/>
-                              <Component id="dispTxt" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Component id="langTxt" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                                  <Component id="pagsLbl" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="4" pref="4" max="-2" attributes="0"/>
+                                  <Component id="pagsTxt" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                                  <Component id="descLbl" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="4" pref="4" max="-2" attributes="0"/>
+                                  <Component id="descTxt" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="stockLbl" min="-2" max="-2" attributes="0"/>
+                                      <Component id="dispLbl" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="4" pref="4" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="stockTxt" min="-2" pref="30" max="-2" attributes="0"/>
+                                      <Component id="dispTxt" min="-2" pref="30" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                                  <Component id="ejemLbl" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="4" pref="4" max="-2" attributes="0"/>
+                                  <Component id="ejemTxt" min="-2" pref="30" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="imageChooser" min="-2" pref="283" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                          <Component id="ejemLbl" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="4" pref="4" max="-2" attributes="0"/>
-                          <Component id="ejemTxt" min="-2" pref="30" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-                          <Component id="button" min="-2" pref="41" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="button" alignment="3" min="-2" pref="41" max="-2" attributes="0"/>
+                              <Component id="btnCancel" alignment="3" min="-2" pref="41" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
@@ -485,6 +508,34 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="descTxtActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblCover">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Portada"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JFileChooser" name="imageChooser">
+        </Component>
+        <Component class="javax.swing.JButton" name="btnCancel">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="72" green="26" red="df" type="rgb"/>
+            </Property>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="18" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Cancelar"/>
+            <Property name="borderPainted" type="boolean" value="false"/>
+            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+              <Color id="Hand Cursor"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCancelActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

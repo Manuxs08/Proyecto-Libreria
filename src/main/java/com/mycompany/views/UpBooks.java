@@ -2,7 +2,11 @@ package com.mycompany.views;
 
 import java.awt.Color;
 import com.mycompany.ilib.DAOBooksImpl;
+import com.mycompany.ilib.Dashboard;
 import com.mycompany.interfaces.DAOBooks;
+import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
 import org.apache.commons.lang3.StringUtils;
 
 public class UpBooks extends javax.swing.JPanel {
@@ -26,7 +30,8 @@ public class UpBooks extends javax.swing.JPanel {
     private void InitStyles(){
         title.putClientProperty("FlatLaf.style", "font: bold $h3.regular.font");
         title.setForeground(Color.black);
-        LibroIdTxt.putClientProperty("JTextField.placeholderText", "Ingrese el título del libro");
+        LibroIdTxt.putClientProperty("JTextField.placeholderText", "La ID del libro se colocará automáticamente");
+        LibroIdTxt.enable(false);
         titleTxt.putClientProperty("JTextField.placeholderText", "Ingrese el título del libro");
         dateTxt.putClientProperty("JTextField.placeholderText", "Ingrese la de publicación del libro.");
         authorTxt.putClientProperty("JTextField.placeholderText", "Ingrese el autor del libro.");
@@ -41,8 +46,11 @@ public class UpBooks extends javax.swing.JPanel {
         if (isEdition) {
             title.setText("Editar Libro");
             button.setText("Guardar");
+            lblCover.setVisible(false);
+            imageChooser.setVisible(false);
 
             if (bookEdition != null) {
+                LibroIdTxt.setText(String.valueOf(bookEdition.getId()));
                 titleTxt.setText(bookEdition.getTitle());
                 dateTxt.setText(bookEdition.getDate());
                 authorTxt.setText(bookEdition.getAuthor());
@@ -108,6 +116,9 @@ public class UpBooks extends javax.swing.JPanel {
         stockTxt = new javax.swing.JTextField();
         descLbl = new javax.swing.JLabel();
         descTxt = new javax.swing.JTextField();
+        lblCover = new javax.swing.JLabel();
+        imageChooser = new javax.swing.JFileChooser();
+        btnCancel = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(750, 430));
@@ -254,6 +265,20 @@ public class UpBooks extends javax.swing.JPanel {
             }
         });
 
+        lblCover.setText("Portada");
+
+        btnCancel.setBackground(new java.awt.Color(223, 38, 114));
+        btnCancel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnCancel.setForeground(new java.awt.Color(255, 255, 255));
+        btnCancel.setText("Cancelar");
+        btnCancel.setBorderPainted(false);
+        btnCancel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout backgroundLayout = new javax.swing.GroupLayout(background);
         background.setLayout(backgroundLayout);
         backgroundLayout.setHorizontalGroup(
@@ -283,13 +308,15 @@ public class UpBooks extends javax.swing.JPanel {
                                 .addGap(30, 30, 30)
                                 .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(backgroundLayout.createSequentialGroup()
-                                        .addComponent(stockTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(dispTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(langLbl)
+                                        .addGap(268, 268, 268)
+                                        .addComponent(lblCover))
                                     .addGroup(backgroundLayout.createSequentialGroup()
                                         .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(langLbl)
-                                            .addComponent(langTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(backgroundLayout.createSequentialGroup()
+                                                .addComponent(stockTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(20, 20, 20)
+                                                .addComponent(dispTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
                                             .addComponent(pagsLbl)
                                             .addComponent(pagsTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(descLbl)
@@ -299,13 +326,17 @@ public class UpBooks extends javax.swing.JPanel {
                                                 .addGap(121, 121, 121)
                                                 .addComponent(dispLbl))
                                             .addComponent(ejemLbl)
-                                            .addComponent(ejemTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(0, 0, Short.MAX_VALUE))))
-                            .addGroup(backgroundLayout.createSequentialGroup()
-                                .addGap(109, 109, 109)
+                                            .addComponent(ejemTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(langTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(18, 18, 18)
+                                        .addComponent(imageChooser, javax.swing.GroupLayout.PREFERRED_SIZE, 396, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, backgroundLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(button, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE)))))
-                .addGap(60, 60, 60))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(7, 7, 7)))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         backgroundLayout.setVerticalGroup(
             backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -340,49 +371,61 @@ public class UpBooks extends javax.swing.JPanel {
                         .addComponent(edTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(backgroundLayout.createSequentialGroup()
-                        .addComponent(langLbl)
-                        .addGap(14, 14, 14)
-                        .addComponent(langTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(pagsLbl)
-                        .addGap(4, 4, 4)
-                        .addComponent(pagsTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(descLbl)
-                        .addGap(4, 4, 4)
-                        .addComponent(descTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
                         .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(stockLbl)
-                            .addComponent(dispLbl))
-                        .addGap(4, 4, 4)
+                            .addGroup(backgroundLayout.createSequentialGroup()
+                                .addComponent(langLbl)
+                                .addGap(14, 14, 14))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, backgroundLayout.createSequentialGroup()
+                                .addComponent(lblCover)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                         .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(stockTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(dispTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(10, 10, 10)
-                        .addComponent(ejemLbl)
-                        .addGap(4, 4, 4)
-                        .addComponent(ejemTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(29, 29, 29)
-                        .addComponent(button, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(20, Short.MAX_VALUE))
+                            .addGroup(backgroundLayout.createSequentialGroup()
+                                .addComponent(langTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(14, 14, 14)
+                                .addComponent(pagsLbl)
+                                .addGap(4, 4, 4)
+                                .addComponent(pagsTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(10, 10, 10)
+                                .addComponent(descLbl)
+                                .addGap(4, 4, 4)
+                                .addComponent(descTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(10, 10, 10)
+                                .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(stockLbl)
+                                    .addComponent(dispLbl))
+                                .addGap(4, 4, 4)
+                                .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(stockTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(dispTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(10, 10, 10)
+                                .addComponent(ejemLbl)
+                                .addGap(4, 4, 4)
+                                .addComponent(ejemTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(imageChooser, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(button, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(background, javax.swing.GroupLayout.PREFERRED_SIZE, 1110, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, 446, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(background, javax.swing.GroupLayout.PREFERRED_SIZE, 432, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonActionPerformed
+        File image = imageChooser.getSelectedFile();
+        File destDir = new File("src/main/resources/images");
         String mtitle = titleTxt.getText();
         String date = dateTxt.getText();
         String author = authorTxt.getText();
@@ -406,7 +449,18 @@ public class UpBooks extends javax.swing.JPanel {
             titleTxt.requestFocus();
             return;
         }
-
+        if(image == null){
+            javax.swing.JOptionPane.showMessageDialog(this, "Debe seleccionar una imagen para la portada. \n", "AVISO", javax.swing.JOptionPane.ERROR_MESSAGE);
+            imageChooser.requestFocus();
+            return;
+        }
+        if(!image.getName().endsWith("png") && !image.getName().endsWith("jpg") && !image.getName().endsWith("jpeg")){
+            javax.swing.JOptionPane.showMessageDialog(this, "Formato de imagen incorrecto(Formatos permitidos: PNG, JPG, JPEG) \n", "AVISO", javax.swing.JOptionPane.ERROR_MESSAGE);
+            imageChooser.requestFocus();
+            return;
+        }
+        String newFileName = image.getName();
+        File destFile = new File(destDir,newFileName);
         com.mycompany.models.Books book = isEdition ? bookEdition : new com.mycompany.models.Books();
         book.setTitle(mtitle);
         book.setDate(date);
@@ -414,6 +468,7 @@ public class UpBooks extends javax.swing.JPanel {
         book.setCategory(cat);
         book.setEdit(ed);
         book.setLang(lang);
+        book.setImage(newFileName);
         book.setPages(pags);
         book.setDescription(desc);
         book.setEjemplares(ejem);
@@ -421,6 +476,7 @@ public class UpBooks extends javax.swing.JPanel {
         book.setAvailable(Integer.parseInt(disp));
 
         try {
+            Files.copy(image.toPath(), destFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
             DAOBooks dao = new DAOBooksImpl();
 
             if (!isEdition) {
@@ -446,6 +502,8 @@ public class UpBooks extends javax.swing.JPanel {
                 dispTxt.setText("");
                 ejemTxt.setText("");
             }
+            
+            Dashboard.ShowJPanel(new Books());
         } catch (Exception e) {
             String errorMsg = isEdition ? "modificar" : "registrar";
             javax.swing.JOptionPane.showMessageDialog(this, "Ocurrió un error al " + errorMsg + " el libro. \n", "AVISO", javax.swing.JOptionPane.ERROR_MESSAGE);
@@ -501,6 +559,11 @@ public class UpBooks extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_descTxtActionPerformed
 
+    private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
+        // TODO add your handling code here:
+        Dashboard.ShowJPanel(new Books());
+    }//GEN-LAST:event_btnCancelActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel LibroIdLbl;
@@ -508,6 +571,7 @@ public class UpBooks extends javax.swing.JPanel {
     private javax.swing.JLabel authorLbl;
     private javax.swing.JTextField authorTxt;
     private javax.swing.JPanel background;
+    private javax.swing.JButton btnCancel;
     private javax.swing.JButton button;
     private javax.swing.JLabel catLbl;
     private javax.swing.JTextField catTxt;
@@ -521,10 +585,12 @@ public class UpBooks extends javax.swing.JPanel {
     private javax.swing.JTextField edTxt;
     private javax.swing.JLabel ejemLbl;
     private javax.swing.JTextField ejemTxt;
+    private javax.swing.JFileChooser imageChooser;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel langLbl;
     private javax.swing.JTextField langTxt;
+    private javax.swing.JLabel lblCover;
     private javax.swing.JLabel pagsLbl;
     private javax.swing.JTextField pagsTxt;
     private javax.swing.JLabel stockLbl;
